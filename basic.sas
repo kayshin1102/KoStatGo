@@ -5,22 +5,22 @@ run;
 
 /* proc means */
 
-/*¹æ¹ý1*/
+/*ï¿½ï¿½ï¿½1*/
 PROC MEANS DATA=sashelp.cars;
 	VAR MPG_City;
 	CLASS Origin;
-	OUTPUT OUT=kostat.output_cars; /* OUTPUT OUT = »õµ¥ÀÌÅÍ¸í */
+	OUTPUT OUT=kostat.output_cars; /* OUTPUT OUT = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ */
 RUN;
 
 DATA kostat.mean_MPG_City;
 	SET kostat.output_cars(WHERE=(_STAT_="MEAN"));
 RUN;
 
-/*¹æ¹ý2*/
+/*ï¿½ï¿½ï¿½2*/
 PROC MEANS DATA=sashelp.cars;
 	VAR MPG_City;
 	CLASS Origin;
-	OUTPUT OUT=kostat.mean_cars MEAN=avg MEDIAN=med STD=sd;  /* OUTPUT OUT = »õµ¥ÀÌÅÍ¸í MEAN = »õµ¥ÀÌÅÍ¼Â¿¡¼­ÀÇ »õº¯¼ö¸í */
+	OUTPUT OUT=kostat.mean_cars MEAN=avg MEDIAN=med STD=sd;  /* OUTPUT OUT = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ MEAN = ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¼Â¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 RUN;
 
 /* proc univariate */
@@ -71,4 +71,9 @@ run;
 
 proc glm data=hw5_1;
 	model p08bb002=sex /solution;
+run;
+
+/* test for revision_kayshin */
+
+proc contents data=hw5_1;
 run;
